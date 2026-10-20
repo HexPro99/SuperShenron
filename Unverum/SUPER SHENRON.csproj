@@ -1,0 +1,101 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <RootNamespace>Unverum</RootNamespace>
+    <UseWPF>true</UseWPF>
+    <ApplicationIcon>Assets\SuperShenron.ico</ApplicationIcon>
+    <AssemblyName>SuperShenron</AssemblyName>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+    <FileVersion>1.0.0.0</FileVersion>
+    <Version>1.0.0</Version>
+    <Product>SUPER SHENRON</Product>
+    <AssemblyTitle>SUPER SHENRON</AssemblyTitle>
+    <Description>Dragon Ball FighterZ mod manager that installs and updates Shenron (DBFZ: KAI)</Description>
+    <Copyright>Based on Unverum Mod Manager by TekkaGB (GPL-3.0)</Copyright>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Assets\Icons\dbfz.png" />
+    <None Remove="Assets\RobotoMono-Regular.ttf" />
+    <None Remove="Assets\Shenron.png" />
+    <None Remove="Assets\SuperShenron.ico" />
+    <None Remove="Assets\SuperShenronPreview.png" />
+    <None Remove="GameBanana.png" />
+    <None Remove="Resources\Patches\Dragon Ball FighterZ\Patch\dsound.dll" />
+    <None Remove="Resources\Patches\Dragon Ball FighterZ\Patch\plugins\config.toml" />
+    <None Remove="Resources\Patches\Dragon Ball FighterZ\Patch\plugins\DBFZExtraCostumesPatch.asi" />
+    <None Remove="Resources\Patches\Dragon Ball FighterZ\Patch\plugins\DBFZFileAccessLog.asi" />
+    <None Remove="Resources\Patches\Dragon Ball FighterZ\Placeholder\--PlaceholderCostumes.pak" />
+    <None Remove="Resources\REDGame.uasset" />
+    <None Remove="Resources\REDGame.uexp" />
+    <None Remove="Resources\Shenron\SHENRON.asi" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Patches\Dragon Ball FighterZ\Patch\dsound.dll" />
+    <EmbeddedResource Include="Resources\Patches\Dragon Ball FighterZ\Patch\plugins\config.toml" />
+    <EmbeddedResource Include="Resources\Patches\Dragon Ball FighterZ\Patch\plugins\DBFZExtraCostumesPatch.asi" />
+    <EmbeddedResource Include="Resources\Patches\Dragon Ball FighterZ\Patch\plugins\DBFZFileAccessLog.asi" />
+    <EmbeddedResource Include="Resources\Patches\Dragon Ball FighterZ\Placeholder\--PlaceholderCostumes.pak" />
+    <EmbeddedResource Include="Resources\Shenron\SHENRON.asi" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FontAwesome5" Version="2.1.0" />
+    <PackageReference Include="gong-wpf-dragdrop" Version="2.3.2" />
+    <PackageReference Include="SharpCompress" Version="0.28.1" />
+    <PackageReference Include="WindowsAPICodePack-Core" Version="1.1.2" />
+    <PackageReference Include="WindowsAPICodePack-Shell" Version="1.1.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Assets\GameBanana.png" />
+    <Resource Include="Assets\Icons\dbfz.png" />
+    <Resource Include="Assets\RobotoMono-Regular.ttf" />
+    <Resource Include="Assets\Shenron.png" />
+    <Resource Include="Assets\SuperShenron.ico" />
+    <Resource Include="Assets\SuperShenronPreview.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="UI\FetchWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Dependencies\u4pak\u4pak.exe">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Dependencies\umodel\LICENSE.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Dependencies\umodel\SDL2_64.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Dependencies\umodel\umodel_64.exe">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Page Update="UI\ChoiceWindow.xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="UI\ConfigurePaksWindow.xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Update="UI\FetchWindow.xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="UI\AltLinkWindow.xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+    </Page>
+  </ItemGroup>
+
+</Project>
